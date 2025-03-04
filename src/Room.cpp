@@ -1,5 +1,6 @@
 #include "Room.hpp"
 #include "Player.hpp"
+#include "Monster.hpp"
 
 #include <fstream>
 #include <string>
@@ -100,7 +101,13 @@ void Room::Load(std::string _path)
             
             if (m_map[y][x] == 'M')
             {
-                //clear
+                Entity* monster = (Entity*)new Monster();
+                m_monsters.push_back(monster);
+
+                monster->Init(Vector2D(x,y));
+                monster->Start();
+
+                // clear
                 m_map[y][x] = ' ';
             }
         }
@@ -186,6 +193,15 @@ void Room::OpenDoor(Vector2D _pos)
     {
         if (m_doors[i].pos == _pos)
         {
+             // int nextRoom = rand()%(1,1000);
+            // if (nextRoom = 5){
+            //     Load(m_doors[i].path);
+            //     break;
+
+
+            // }
+            // //while i<4
+            //if path =random load random path
             Load(m_doors[i].path);
         }
     }
