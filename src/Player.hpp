@@ -5,9 +5,10 @@
 class Player : public Entity
 {
 public:
-    int health = 0;
     void Start();
     void Update();
+    int health = 10;
+
 private:
     int m_keyCount = 0;
 };

@@ -8,5 +8,5 @@ void Monster::Start()
 
 void Monster::Update()
 {
-    
+
 }

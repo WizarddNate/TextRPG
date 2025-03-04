@@ -1,11 +1,23 @@
 #include "Player.hpp"
 #include "fogpi/fogpi.hpp"
-
 #include "Room.hpp"
 
 void Player::Start()
 {
     m_character = 'P';
+    Stats playerStats;
+
+    //temp stats
+    playerStats.strength = 2; //determines basic attack
+    playerStats.dexterity = 3; //determines basic defense
+    playerStats.wit = 1; //determines special attack
+    playerStats.wisdom = 2; //determines special defense
+
+    playerStats.health = 10;
+    playerStats.level = 1;
+    playerStats.exp = 0;
+    playerStats.gold = 0;
+
 }
 
 void Player::Update()
@@ -49,27 +61,31 @@ void Player::Update()
         room->ClearLocation(tryPos);
     }
 
-    if (room->GetLocation(tryPos) == 'L')
-    {
-        if (m_keyCount <= 0)
-        {
-            printf("NO KEY!!!\n");
-            return;
-        }
-
-        m_keyCount--;
-        room->SetLocation(tryPos, 'D');
-        return;
-    }
-
-    // open door
+    //open door unlocked door
     if (room->GetLocation(tryPos) == 'D')
     {
         room->OpenDoor(tryPos);
+    }
+    //open locked door
+    if (room->GetLocation(tryPos) == 'L')
+    {
+        //end if statement if you don't have the key
+        if (m_keyCount <= 0)
+        {
+            printf("it's locked.");
+            return;
+        }
+
+        room->SetLocation(tryPos, 'D');
+        printf("your key unlocks the door with a satisfying click.");
+        m_position = tryPos;
+        m_keyCount--;
     }
 
     if (room->GetLocation(tryPos) == ' ') 
         m_position = tryPos;
     
     printf("%c\n", directionInput);
+
+    //cout << playerStats.exp << " " << playerStats.level << " " << playerStats.gold << "\n";
 }

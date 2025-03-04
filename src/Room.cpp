@@ -1,5 +1,4 @@
 #include "Room.hpp"
-
 #include "Player.hpp"
 
 #include <fstream>
@@ -9,15 +8,13 @@ void Room::Load(std::string _path)
 {
     m_map.clear();
     m_doors.clear();
-
+    
     for (Entity* monster : m_monsters)
     {
         delete monster;
         monster = nullptr;
     }
-
     m_monsters.clear();
-
     std::ifstream file;
     file.open(_path);
 
@@ -65,6 +62,7 @@ void Room::Load(std::string _path)
                     continue;
                 }
 
+                //where the program sees a 0, it places a space
                 if (word == "0")
                     m_map[m_map.size() - 1].push_back(' ');
                 else
@@ -99,12 +97,10 @@ void Room::Load(std::string _path)
                     doorCount++;
                 }
             }
-
+            
             if (m_map[y][x] == 'M')
             {
-
-
-                // clear
+                //clear
                 m_map[y][x] = ' ';
             }
         }
@@ -114,29 +110,26 @@ void Room::Load(std::string _path)
 void Room::Update()
 {
     Draw();
-
     if (m_player != nullptr)
     {
         /*if (((Player*)m_player)->health <= 0)
         {
-
+            
         }
-        
         m_player->room = this;
         m_player->Update();*/
 
         Player& player = *(Player*)m_player;
 
-        if(player.health <= 0)
+        if (player.health <= 0)
         {
-            // handle death
+            //handle death
             exit(0);
         }
 
         player.room = this;
         player.Update();
     }
-
     for (Entity* monster : m_monsters)
     {
         monster->room = this;

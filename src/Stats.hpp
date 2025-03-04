@@ -1,11 +1,13 @@
-#pragma once
-
 struct Stats
 {
-    int strength = 0;
-    int dexterity = 0;
-    int constitution = 0;
-    int intelligence = 0;
-    int wisdom = 0;
-    int charisma = 0;
+    int strength = 0; //determines basic attack
+    int dexterity = 0; //determines basic defense
+    int wit = 0; //determines special attack
+    int wisdom = 0; //determines special defense
+
+    int health = 10;
+    int level = 0;
+    float exp = 0;
+    int gold = 0;
+
 };
