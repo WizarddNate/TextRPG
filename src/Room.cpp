@@ -193,14 +193,16 @@ void Room::OpenDoor(Vector2D _pos)
     {
         if (m_doors[i].pos == _pos)
         {
-             // int nextRoom = rand()%(1,1000);
-            // if (nextRoom = 5){
+            // int nextRoom = rand()%(1,1001); //1  in 1000 chance for gold or shop room
+            // if (nextRoom = 5){  
             //     Load(m_doors[i].path);
             //     break;
-
-
+            // }if(nextRoom = 10){
+            //     Load(m_doors[i].path);
+            //     break;
             // }
-            // //while i<4
+
+            //while i<4, after exploring 3 room you encounter a boss room
             //if path =random load random path
             Load(m_doors[i].path);
         }
