@@ -78,7 +78,7 @@ void Player::Update()
 
         room->SetLocation(tryPos, 'D');
         printf("your key unlocks the door with a satisfying click.");
-        m_position = tryPos;
+        //m_position = tryPos;
         m_keyCount--;
     }
 

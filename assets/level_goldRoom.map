@@ -3,8 +3,11 @@ next_level assets/level_1.map
 map
 # # # # L # # # # -1
 # 0 0 0 0 0 0 0 # -1
-# 0 0 G K 0 G 0 # -1
-# 0 G 0 0 0 0 0 # -1
+# 0 0 G X 0 G 0 # -1
+# 0 G 0 K 0 0 0 # -1
 # 0 0 0 0 0 0 0 # -1
 # 0 0 0 S 0 0 0 # -1
 # # # # # # # # # -2
+
+//X marks the spot for the treasue
+//G marks varius gold piles

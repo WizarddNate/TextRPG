@@ -110,6 +110,14 @@ void Room::Load(std::string _path)
                 // clear
                 m_map[y][x] = ' ';
             }
+
+            if (m_map[y][x] == 'G'){        // Gold on ground +1 to gold count
+                m_map[y][x] = ' ';
+            }
+
+            if (m_map[y][x] == 'X'){        //treasure chest : +20 to gold count
+                m_map[y][x] = ' ';
+            }
         }
     }
 }
@@ -193,13 +201,18 @@ void Room::OpenDoor(Vector2D _pos)
     {
         if (m_doors[i].pos == _pos)
         {
-            // int nextRoom = rand()%(1,1001); //1  in 1000 chance for gold or shop room
+            //int nextRoom = rand()%(1,5); //1  in 1000 chance for gold or shop room
+            //Room room;
+
             // if (nextRoom = 5){  
-            //     Load(m_doors[i].path);
-            //     break;
+            //     room.Load("assets/level_goldRoom.map");      //load gold room
+            //     return;
             // }if(nextRoom = 10){
+            //     room.Load("assets/level_goldRoom.map");      //load shop
+            //     return;
+            // }if(nextRoom != 10 && nextRoom != 5){
             //     Load(m_doors[i].path);
-            //     break;
+            //     return;
             // }
 
             //while i<4, after exploring 3 room you encounter a boss room
