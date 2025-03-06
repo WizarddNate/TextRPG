@@ -35,7 +35,7 @@ RollStats RollDice(std::vector<Die> _dice)
         stats.average += die.sides / 2.0f;
 
         int roll = random_int(1, die.sides);
-        stats.total += roll;
+        stats.total += roll; 
     }
 
     return stats;

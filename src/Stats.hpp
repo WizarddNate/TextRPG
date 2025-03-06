@@ -1,4 +1,4 @@
-struct Stats
+struct CharStats
 {
     int strength = 0; //determines basic attack
     int dexterity = 0; //determines basic defense
