@@ -17,11 +17,11 @@ public:
 
     char Draw() { return m_character; }
     Vector2D GetPosition() { return m_position; }
-    const Stats&GetStats() { return m_stats; }
+    const CharStats&GetStats() { return m_stats; }
 
 protected:
     Vector2D m_position;
     char m_character;
-    Stats m_stats;
+    CharStats m_stats;
     //char m_color = '[0;31m';
 };

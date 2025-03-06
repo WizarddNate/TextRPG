@@ -5,19 +5,6 @@
 void Player::Start()
 {
     m_character = 'P';
-    Stats playerStats;
-
-    //temp stats
-    playerStats.strength = 2; //determines basic attack
-    playerStats.dexterity = 3; //determines basic defense
-    playerStats.wit = 1; //determines special attack
-    playerStats.wisdom = 2; //determines special defense
-
-    playerStats.health = 10;
-    playerStats.level = 1;
-    playerStats.exp = 0;
-    playerStats.gold = 0;
-
 }
 
 void Player::Update()
