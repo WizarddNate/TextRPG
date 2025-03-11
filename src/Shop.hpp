@@ -13,6 +13,9 @@ struct Items {
     std::string description;
     int cost;
     int effect;
+    int buyItem;
+    int itemChoice;
+    int price;
 };
 
 //Setting up inventory/shop

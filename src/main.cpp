@@ -17,6 +17,7 @@
 #include <ctime>
 
 int main(int argc, char* argv[])
+
 {
     srand(time(NULL));
 
@@ -123,6 +124,7 @@ int main(int argc, char* argv[])
             break;
       }
 
+// Dice Logic 
 
     while(true)
     {
