@@ -84,10 +84,17 @@ void Room::Load(std::string _path)
                 if (m_player == nullptr)
                     m_player = new Player();
                 
+                //Print(m_player->GetPosition());
                 m_player->Init(Vector2D(x, y));
+                //Print(m_player->GetPosition());
+
                 m_player->Start();
+                //Print(m_player->GetPosition());
                 m_map[y][x] = ' ';
+
+                //printf("Your moving");
             }
+
 
             if (m_map[y][x] == 'D' || m_map[y][x] == 'L')
             {
@@ -110,12 +117,14 @@ void Room::Load(std::string _path)
                 // clear
                 m_map[y][x] = ' ';
             }
+
         }
     }
 }
 
 void Room::Update()
 {
+    //Print(m_player->GetPosition());
     Draw();
     if (m_player != nullptr)
     {
@@ -193,18 +202,9 @@ void Room::OpenDoor(Vector2D _pos)
     {
         if (m_doors[i].pos == _pos)
         {
-            // int nextRoom = rand()%(1,1001); //1  in 1000 chance for gold or shop room
-            // if (nextRoom = 5){  
-            //     Load(m_doors[i].path);
-            //     break;
-            // }if(nextRoom = 10){
-            //     Load(m_doors[i].path);
-            //     break;
-            // }
 
-            //while i<4, after exploring 3 room you encounter a boss room
-            //if path =random load random path
             Load(m_doors[i].path);
+            //room.Load("assets/level_shop.map");
         }
     }
 }

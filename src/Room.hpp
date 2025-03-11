@@ -7,6 +7,7 @@
 #include "Entity.hpp"
 #include "Door.hpp"
 
+
 class Room {
 public:
     void Load(std::string _path);
