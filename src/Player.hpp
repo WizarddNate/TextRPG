@@ -11,8 +11,6 @@ public:
 
 private:
     int m_keyCount = 0;
-
-    
-
+    int m_goldCount =0;
 };
 
