@@ -48,10 +48,17 @@ void Player::Update()
         room->ClearLocation(tryPos);
     }
 
+    //cheak for gold
+    if (room->GetLocation(tryPos) == 'G'){
+        m_goldCount++;
+        room->ClearLocation(tryPos);
+    }
+
     //open door unlocked door
     if (room->GetLocation(tryPos) == 'D')
     {
         room->OpenDoor(tryPos);
+        return;
     }
     //open locked door
     if (room->GetLocation(tryPos) == 'L')
@@ -59,12 +66,12 @@ void Player::Update()
         //end if statement if you don't have the key
         if (m_keyCount <= 0)
         {
-            printf("it's locked.");
+            printf("it's locked.\n");
             return;
         }
 
         room->SetLocation(tryPos, 'D');
-        printf("your key unlocks the door with a satisfying click.");
+        printf("your key unlocks the door with a satisfying click.\n");
         //m_position = tryPos;
         m_keyCount--;
     }
@@ -72,7 +79,7 @@ void Player::Update()
     if (room->GetLocation(tryPos) == ' ') 
         m_position = tryPos;
     
-    printf("%c\n", directionInput);
+    //printf("%c\n", directionInput);
 
     //cout << playerStats.exp << " " << playerStats.level << " " << playerStats.gold << "\n";
 }
