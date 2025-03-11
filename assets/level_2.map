@@ -1,8 +1,9 @@
 level 2
 next_level assets/level_3.map
+next_level assets/level_shop.map
 map
-# # # # # # # # # # # # -1
-# 0 0 0 G 0 0 0 0 0 0 # -1
+# # # # L # # # # # # # -1
+# G 0 0 G 0 0 0 0 0 0 # -1
 # 0 0 0 0 0 K 0 0 0 0 L -1
-# 0 S 0 0 0 0 0 0 0 0 # -1
+# 0 S 0 0 0 0 0 0 G 0 # -1
 # # # # # # # # # # # # -2

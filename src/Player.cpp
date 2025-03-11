@@ -52,6 +52,13 @@ void Player::Update()
     if (room->GetLocation(tryPos) == 'G'){
         m_goldCount++;
         room->ClearLocation(tryPos);
+        printf("You collected +1 Gold\n");
+    }
+    //Check for treasur chest
+    if(room->GetLocation(tryPos) == 'X'){
+        m_goldCount = m_goldCount + 13;
+        room->ClearLocation(tryPos);
+        printf("You opened the Treasure Chest and collected +13 Gold\n");
     }
 
     //open door unlocked door

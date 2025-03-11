@@ -1,6 +1,7 @@
 #include "Room.hpp"
 #include "Player.hpp"
 #include "Monster.hpp"
+#include "fogpi/fogpi.hpp"
 
 #include <fstream>
 #include <string>
@@ -202,7 +203,7 @@ void Room::OpenDoor(Vector2D _pos)
     {
         if (m_doors[i].pos == _pos)
         {
-
+            
             Load(m_doors[i].path);
             //room.Load("assets/level_shop.map");
         }

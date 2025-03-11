@@ -35,7 +35,7 @@ int main(int argc, char* argv[])
 
     //class dependent stats
     char StatsInput;
-    StatsInput = request_char("Select your class! F for fighter, C for cleric, W for wizard, R for rouge.");
+    StatsInput = request_char("Select your class! F for fighter, C for cleric, W for wizard, R for rouge.\n");
 
 
     switch(StatsInput) {
@@ -114,7 +114,7 @@ int main(int argc, char* argv[])
             playerStats.wisdom = 0;
             playerStats.health = 12;
 
-            printf("you are secret class X! It SUCKS. Stats:", "%c\n",
+            printf("you are secret class X! It SUCKS.\n Stats:", "%c\n",
                 "strength: ", playerStats.strength, "%c\n",
                 "dexterity: ", playerStats.dexterity, "%c\n",
                 "wit: ", playerStats.wit, "%c\n",
