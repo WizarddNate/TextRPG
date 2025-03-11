@@ -1,9 +1,9 @@
-#include "Monster.hpp"
+#include "Boss.hpp"
 #include "Room.hpp"
 
-void Monster::Start()
+void Boss::Start()
 {
-    m_character = 'M';
+    m_character = 'B';
 
     /// Monster Stats ///
     CharStats monsterStats;
@@ -18,7 +18,7 @@ void Monster::Start()
     monsterStats.gold = 0;
 }
 
-void Monster::Update()
+void Boss::Update()
 {
 
 }
