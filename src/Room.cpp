@@ -116,7 +116,7 @@ void Room::Load(std::string _path)
                 monster->Start();
 
                 // clear
-                m_map[y][x] = ' ';
+                //m_map[y][x] = ' ';
             }
 
         }

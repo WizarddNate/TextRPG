@@ -135,12 +135,8 @@ void Player::Update()
     if (room->GetLocation(tryPos) == ' '){
         m_position = tryPos;
 
-    }   
-    // printf("%c\n", directionInput);
-
-    
-    //printf("%c\n", directionInput);
-
+    }
+       
     // printf("%c\n", directionInput);
 
     // cout << playerStats.exp << " " << playerStats.level << " " << playerStats.gold << "\n";
