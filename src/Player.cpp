@@ -25,6 +25,13 @@ void Player::Update()
 {
     char directionInput;
 
+    if (playerStats.health <= 0)
+    {
+        //handle death
+        printf("You have died.\n Final Level: %i\n Gold Amount: %i\n", playerStats.level, playerStats.exp);
+        exit(0);
+    }
+
     do
     {
         directionInput = request_char("wasd and Enter to move");
