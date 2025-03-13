@@ -5,6 +5,84 @@
 void Player::Start()
 {
     m_character = 'P';
+
+    playerStats.level = 1;
+    playerStats.exp = 0;
+    playerStats.gold = 0; 
+
+    //class dependent stats
+    char StatsInput;
+    StatsInput = request_char("Select your class! F for fighter, C for cleric, W for wizard, R for rouge.");
+
+
+    switch(StatsInput) {
+        case 'F':
+            playerStats.strength = 4;
+            playerStats.dexterity = 2;
+            playerStats.wit = 0;
+            playerStats.wisdom = 1;
+            playerStats.health = 12;
+
+            printf("you are a fighter! Stats:\n Strength: %i\n Dexterity: %i\n Wit: %i\n Wisdom: %i\n Health: %i\n You are strong, but not vested in the arcane arts. Do not hesitate with your sword.\n", 
+                    playerStats.strength, playerStats.dexterity, playerStats.wit, playerStats.wisdom, playerStats.health);
+                    //class ability: add an extra die to your attack once per 3 rooms
+            break;
+
+        case 'C':
+            playerStats.strength = 0;
+            playerStats.dexterity = 2;
+            playerStats.wit = 2;
+            playerStats.wisdom = 4;
+            playerStats.health = 14;
+
+        printf("you are a Cleric! Stats:\n Strength: %i\n Dexterity: %i\n Wit: %i\n Wisdom: %i\n Health: %i\n You shield yourself from the dark forces who hunt you. Banish them with your magic.");
+            //special ability: Fully heal yourself once per 3 rooms
+            break;
+        
+        case 'W':
+            playerStats.strength = 0;
+            playerStats.dexterity = 3;
+            playerStats.wit = 4;
+            playerStats.wisdom = 2;
+            playerStats.health = 10;
+
+            printf("you are a Wizard! Stats: \n Strength: %i\n Dexterity: %i\n Wit: %i\n Wisdom: %i\n Health: %i\n You are vested in the arcane arts. Blast away your enemies with your spellbook before they can touch you.");
+                //special ability: you get slighltly more exp from each enemy that you kill
+            break;
+        
+        case 'R':
+            playerStats.strength = 3;
+            playerStats.dexterity = 4;
+            playerStats.wit = 2;
+            playerStats.wisdom = 0;
+            playerStats.health = 12;
+
+            printf("you are a Rouge! Stats:", "%c\n",
+                "strength: ", playerStats.strength, "%c\n",
+                "dexterity: ", playerStats.dexterity, "%c\n",
+                "wit: ", playerStats.wit, "%c\n",
+                "wisdom", playerStats.wisdom, "%c\n",
+                "health: ", playerStats.health, "%c\n",
+                "You become one with the shadows. Strike your enemies before they see you." "%c\n");
+                //special ability: you get slightly more gold from each enemy that you kill
+            break;
+        
+        default:
+            playerStats.strength = 3;
+            playerStats.dexterity = 4;
+            playerStats.wit = 2;
+            playerStats.wisdom = 0;
+            playerStats.health = 12;
+
+            printf("you are secret class X! It SUCKS. Stats:", "%c\n",
+                "strength: ", playerStats.strength, "%c\n",
+                "dexterity: ", playerStats.dexterity, "%c\n",
+                "wit: ", playerStats.wit, "%c\n",
+                "wisdom", playerStats.wisdom, "%c\n",
+                "health: ", playerStats.health, "%c\n",
+                "You're not good at much of anything. Good luck bozo!" "%c\n");
+            break;
+      }
 }
 
 void Player::Update()
@@ -52,6 +130,13 @@ void Player::Update()
     if (room->GetLocation(tryPos) == 'G'){
         m_goldCount++;
         room->ClearLocation(tryPos);
+        printf("You collected +1 Gold\n");
+    }
+    //Check for treasur chest
+    if(room->GetLocation(tryPos) == 'X'){
+        m_goldCount = m_goldCount + 13;
+        room->ClearLocation(tryPos);
+        printf("You opened the Treasure Chest and collected +13 Gold\n");
     }
 
     //open door unlocked door
