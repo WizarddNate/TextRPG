@@ -15,6 +15,12 @@ void Player::Start()
     }
 }
 
+// Roll a 20-sided dice
+int rollD20() 
+{
+    return rand() % 20 + 1;
+}
+
 void Player::Update()
 {
     char directionInput;
@@ -25,8 +31,10 @@ void Player::Update()
     } while (directionInput != 'w' &&
              directionInput != 'a' &&
              directionInput != 's' &&
-             directionInput != 'd');
-
+             directionInput != 'd' &&
+             directionInput != 'r'
+            );
+    
     Vector2D direction(0.0f);
 
     switch (directionInput)
@@ -43,6 +51,13 @@ void Player::Update()
     case 'd':
         direction = {1.0f, 0.0f};
         break;
+    case 'r':
+    {
+        printf("Player has initiated dice roll!\n");
+        printf("Player rolled d20: %d\n", rollD20());
+        break;  
+    }
+
     default:
         direction = {0.0f, 1.0f};
         break;
@@ -96,6 +111,10 @@ void Player::Update()
 
     if (room->GetLocation(tryPos) == ' ')
         m_position = tryPos;
+
+
+    
+    //printf("%c\n", directionInput);
 
     // printf("%c\n", directionInput);
 
