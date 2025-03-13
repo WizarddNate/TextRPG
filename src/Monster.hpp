@@ -11,4 +11,5 @@ public:
     MonsterStats monsterStats;
 
 private:
+    
 };

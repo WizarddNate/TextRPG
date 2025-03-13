@@ -137,6 +137,7 @@ void Room::Update()
         m_player->Update();*/
 
         Player& player = *(Player*)m_player;
+        //Stats& stats = *(Stats*)m_stats;
 
         player.room = this;
         player.Update();
