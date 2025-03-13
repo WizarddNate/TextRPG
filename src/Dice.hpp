@@ -39,4 +39,5 @@ RollStats RollDice(std::vector<Die> _dice)
     }
 
     return stats;
+    
 }

@@ -17,7 +17,6 @@
 #include <ctime>
 
 int main(int argc, char* argv[])
-
 {
     srand(time(NULL));
 
@@ -31,16 +30,4 @@ int main(int argc, char* argv[])
     }
   
     return 0;
-}
-
-int rollDice(int sides)
-
-{
-    return rand() % sides + 1;  
-}
-
-int getDiceSides(int level) 
-{
-    
-    return 6 + level; 
 }
