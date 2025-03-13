@@ -19,6 +19,7 @@ struct MonsterStats{
     int wit = 0; //determines special attack
     int wisdom = 0; //determines special defense
 
-    int health = 10;
-    int gold = 5; //add gold to player gold stat/count
+    int health = 0;
+    float exp = 0;
+    int gold = 0; //add gold to player gold stat/count
 };

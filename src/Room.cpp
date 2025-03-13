@@ -138,11 +138,12 @@ void Room::Update()
 
         Player& player = *(Player*)m_player;
 
-        if (player.health <= 0)
-        {
-            //handle death
-            exit(0);
-        }
+        // if (playerStats.health <= 0)
+        // {
+        //     //handle death
+        //     printf("You have died.");
+        //     exit(0);
+        // }
 
         player.room = this;
         player.Update();
