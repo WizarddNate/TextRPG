@@ -1,6 +1,7 @@
 #include "Player.hpp"
 #include "fogpi/fogpi.hpp"
 #include "Room.hpp"
+#include "Monster.hpp"
 
 void Player::Start()
 {
@@ -106,6 +107,13 @@ void Player::Update()
         printf("You opened the Treasure Chest and collected +13 Gold\n");
     }
 
+    // Check for monsters
+    if (room->GetLocation(tryPos) == 'M'){
+        //room->ClearLocation(tryPos);
+        //monster->Fight();
+        printf("You opened the Treasure Chest and collected +13 Gold\n");
+    }
+
     // open door unlocked door
     if (room->GetLocation(tryPos) == 'D')
     {
@@ -134,7 +142,6 @@ void Player::Update()
 
     if (room->GetLocation(tryPos) == ' '){
         m_position = tryPos;
-
     }
        
     // printf("%c\n", directionInput);
