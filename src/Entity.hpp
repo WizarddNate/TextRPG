@@ -2,6 +2,7 @@
 
 #include "fogpi/Math.hpp"
 #include "Stats.hpp"
+#include "Dice.hpp"
 
 // forward defin
 class Room;

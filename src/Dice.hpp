@@ -1,6 +1,7 @@
 #pragma once
 #include "fogpi/fogpi.hpp"
 #include <vector>
+#include <cstdio>
 
 struct Die
 {
@@ -29,10 +30,10 @@ RollStats RollDice(std::vector<Die> _dice)
 
     for (Die die : _dice)
     {
-        stats.min += 1;
-        stats.max += die.sides;
+        //stats.min += 1;
+        //stats.max += die.sides;
 
-        stats.average += die.sides / 2.0f;
+        //stats.average += die.sides / 2.0f;
 
         int roll = random_int(1, die.sides);
         stats.total += roll; 
@@ -41,3 +42,4 @@ RollStats RollDice(std::vector<Die> _dice)
     return stats;
     
 }
+
