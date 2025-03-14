@@ -129,10 +129,7 @@ void Room::Update()
     Draw();
     if (m_player != nullptr)
     {
-        /*if (((Player*)m_player)->health <= 0)
-        {
-            
-        }
+        /*
         m_player->room = this;
         m_player->Update();*/
 

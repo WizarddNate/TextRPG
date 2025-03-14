@@ -67,16 +67,17 @@ void Player::Update()
         break;  
 
     case 'W':       //MOVE THREE SPACES IF CAPS LOCK
-        direction = {0.0f, -1.0f};
+        direction = {0.0f, -3.0f};
+        printf("dbug");
         break;
     case 'A':
-        direction = {-1.0f, 0.0f};
+        direction = {-3.0f, 0.0f};
         break;
     case 'S':
-        direction = {0.0f, 1.0f};
+        direction = {0.0f, 3.0f};
         break;
     case 'D':
-        direction = {1.0f, 0.0f};
+        direction = {3.0f, 0.0f};
         break;
     default:
         direction = {0.0f, 1.0f};
@@ -136,7 +137,8 @@ void Player::Update()
         m_position = tryPos;
 
     }
-       
+    
+
     // printf("%c\n", directionInput);
 
     // cout << playerStats.exp << " " << playerStats.level << " " << playerStats.gold << "\n";
@@ -216,3 +218,4 @@ void Player::StatsPick()
         break;
     }
 }
+
