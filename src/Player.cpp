@@ -2,7 +2,6 @@
 #include "fogpi/fogpi.hpp"
 #include "Room.hpp"
 #include "Monster.hpp"
-
 void Player::Start()
 {
     m_character = 'P';
@@ -47,6 +46,7 @@ void Player::Update()
              directionInput != 'D');
 
     Vector2D direction(0.0f);
+    int moveCount = 1;
 
     switch (directionInput)
     {
@@ -68,25 +68,34 @@ void Player::Update()
         break;  
 
     case 'W':       //MOVE THREE SPACES IF CAPS LOCK
-        direction = {0.0f, -3.0f};
-        printf("dbug");
+        direction = {0.0f, -1.0f};
+        moveCount = 3;
+        //printf("dbug");
         break;
     case 'A':
-        direction = {-3.0f, 0.0f};
+        direction = {-1.0f, 0.0f};
+        moveCount = 3;
         break;
     case 'S':
-        direction = {0.0f, 3.0f};
+        direction = {0.0f, 1.0f};
+        moveCount = 3;
         break;
     case 'D':
-        direction = {3.0f, 0.0f};
+        direction = {1.0f, 0.0f};
+        moveCount = 3;
         break;
     default:
         direction = {0.0f, 1.0f};
         break;
     }
 
-    Vector2D tryPos = m_position + direction;
+    
 
+    //something to compare player location it room size (m_map.size)
+    //if player location [y][x] > than room size [y][y] {stop player and send to last position}
+
+    for(int i = 0; i < moveCount; i++){
+        Vector2D tryPos = m_position + direction;
     // check for a key
     if (room->GetLocation(tryPos) == 'K')
     {
@@ -107,12 +116,11 @@ void Player::Update()
         room->ClearLocation(tryPos);
         printf("You opened the Treasure Chest and collected +13 Gold\n");
     }
-
-    // Check for monsters
+        // Check for monsters
     if (room->GetLocation(tryPos) == 'M'){
         //room->ClearLocation(tryPos);
         //monster->Fight();
-        printf("You opened the Treasure Chest and collected +13 Gold\n");
+        printf("the monster is on break right now\n");
     }
 
     // open door unlocked door
@@ -143,6 +151,8 @@ void Player::Update()
 
     if (room->GetLocation(tryPos) == ' '){
         m_position = tryPos;
+
+    }
     }
     
 

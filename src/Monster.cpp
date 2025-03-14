@@ -29,7 +29,7 @@ void Monster::GenerateStats()
 
         die.sides = 6;
 
-        monsterStats.strength = 1 + (playerStats.level * 2) + (RollDice(1)); //+ roll.RollDice(); // + random int 
+        //monsterStats.strength = 1 + (playerStats.level * 2) + (RollDice(1)); //+ roll.RollDice(); // + random int 
         monsterStats.dexterity = 2 + (playerStats.level * 2); 
         monsterStats.wit = 0 + (playerStats.level * 2); 
         monsterStats.wisdom = 1 + (playerStats.level * 2); 
@@ -48,7 +48,7 @@ void Monster::Fight()
     switch(AttackInput)
     {
         case 'A':
-            monsterStats.health = monsterStats.health - ((monsterStats.dexterity) - (playerStats.strength));
+            //monsterStats.health = monsterStats.health - ((monsterStats.dexterity) - (playerStats.strength));
         case 'S':
             //Special attack
         default:
