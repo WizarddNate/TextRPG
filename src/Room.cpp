@@ -115,6 +115,10 @@ void Room::Load(std::string _path)
                 monster->Init(Vector2D(x,y));
                 monster->Start();
 
+                //add to monster counter
+                monsterCount ++;
+                //when monster counter == 0, player can leave room
+
                 // clear
                 //m_map[y][x] = ' ';
             }

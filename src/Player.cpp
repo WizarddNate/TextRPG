@@ -137,6 +137,12 @@ void Player::Update()
             printf("it's locked.\n");
             return;
         }
+
+        if(room->monsterCount != 0){
+            printf("You cannot leave yet, there are monsters everywere!\n");
+            return;
+
+        }
         //     //end if monsters still in room
         // if(m_monster -> 0){
         //     printf("You cannot leave yet, there are monsters everywere!");
