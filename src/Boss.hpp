@@ -10,16 +10,9 @@ public:
     void Fight();
 
     /// Monster Stats ///
-    CharStats bossStats;
-    
-    //bossStats.strength = 0; //random int + character level
-    //bossStats.dexterity = 0; 
-    //bossStats.wit = 0;
-    //bosstats.wisdom = 0;
-    //bossStats.health = 0; // + random int + character level
-    
-    //bossStats.exp = 0; //player recieves this upon death
-    //bossStats.gold = 0;
+    MonsterStats bossStats;
 
 private:
+    bool statsGenerated = false;
+    void GenerateStats();
 };

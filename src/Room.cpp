@@ -116,7 +116,7 @@ void Room::Load(std::string _path)
                 monster->Start();
 
                 // clear
-                m_map[y][x] = ' ';
+                //m_map[y][x] = ' ';
             }
 
         }
@@ -129,20 +129,12 @@ void Room::Update()
     Draw();
     if (m_player != nullptr)
     {
-        /*if (((Player*)m_player)->health <= 0)
-        {
-            
-        }
+        /*
         m_player->room = this;
         m_player->Update();*/
 
         Player& player = *(Player*)m_player;
-
-        if (player.health <= 0)
-        {
-            //handle death
-            exit(0);
-        }
+        //Stats& stats = *(Stats*)m_stats;
 
         player.room = this;
         player.Update();

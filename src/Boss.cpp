@@ -5,6 +5,20 @@ void Boss::Start()
 {
     m_character = 'B';
 
+    if (statsGenerated == false)
+    {
+        statsGenerated = true;
+        GenerateStats();
+    }
+}
+
+void Boss::Update()
+{
+
+}
+
+void Boss::GenerateStats()
+{
     bossStats.strength = 0; //random int + character level
     bossStats.dexterity = 0; 
     bossStats.wit = 0; 
@@ -13,11 +27,6 @@ void Boss::Start()
     
     bossStats.exp = 0; //player recieves this upon death
     bossStats.gold = 0;
-}
-
-void Boss::Update()
-{
-
 }
 
 void Boss::Fight()
