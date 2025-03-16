@@ -18,4 +18,6 @@ public:
 private:
     bool statsGenerated = false;
     void GenerateStats();
+    int rollD6();
+    int rollD2();
 };
