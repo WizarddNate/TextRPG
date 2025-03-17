@@ -11,20 +11,20 @@ struct Die
 struct RollStats
 {
     int total = 0;
-    //float average = 0.0f;
-    //int min = 0;
-    //int max = 0;
+    float average = 0.0f;
+    int min = 0;
+    int max = 0;
 };
 
-// void PrintRollStats(RollStats &_stats) {
-//     printf("#### ROLL STATS ####\n");
-//     printf("Total: %i\n", _stats.total);
-//     printf("Min: %i\n", _stats.min);
-//     printf("Max: %i\n", _stats.max);
-//     printf("Average: %f\n", _stats.average);
-// }
+static void PrintRollStats(RollStats &_stats) {
+    printf("#### ROLL STATS ####\n");
+    printf("Total: %i\n", _stats.total);
+    printf("Min: %i\n", _stats.min);
+    printf("Max: %i\n", _stats.max);
+    printf("Average: %f\n", _stats.average);
+}
 
-RollStats RollDice(std::vector<Die> _dice)
+static RollStats RollDice(std::vector<Die> _dice)
 {
     RollStats stats = {};
 

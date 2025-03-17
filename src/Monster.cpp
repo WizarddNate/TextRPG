@@ -14,6 +14,16 @@ void Monster::Start()
     }
 }
 
+int rollD6() 
+{
+    return rand() % 6 + 1;
+}
+
+int rollD2()
+{
+    return rand() % 2 + 1;
+}
+
 void Monster::Update()
 {
     
@@ -22,10 +32,7 @@ void Monster::Update()
 void Monster::GenerateStats()
 {
         /// Player Stats ///
-        CharStats playerStats;
-
-        /// Monster Stats ///
-        CharStats monsterStats;
+        const CharStats& playerStats = ((Player&)(room->GetPlayer())).playerStats;
 
         die.sides = 6;
 
@@ -41,6 +48,12 @@ void Monster::GenerateStats()
 
 void Monster::Fight()
 {
+    /// Player Stats ///
+    const CharStats& playerStats = ((Player&)(room->GetPlayer())).playerStats;
+
+    //printf(playerStats.level);
+    //printf(monsterStats.health);
+
     //player chooses between regular and special attack
     char AttackInput;
     AttackInput = request_char("A great foe stands before you. Take your next Action Carefully. \n A for attack, S for speical attack");
@@ -48,7 +61,7 @@ void Monster::Fight()
     switch(AttackInput)
     {
         case 'A':
-            //monsterStats.health = monsterStats.health - ((monsterStats.dexterity + rollD6()) - (playerStats.strength + rollD6()));
+            monsterStats.health = monsterStats.health - ((monsterStats.dexterity + rollD6()) - (playerStats.strength + rollD6()));
             printf("You do %i points in strength damage, the monster has %i hp remaining \n", monsterStats.exp, monsterStats.health);
         case 'S':
             //monsterStats.health = monsterStats.health - ((monsterStats.wisdom + rollD6()) - (playerStats.wit + rollD6()));
@@ -84,14 +97,4 @@ void Monster::Fight()
     {
         //call death function
     }
-}
-
-int rollD6() 
-{
-    return rand() % 6 + 1;
-}
-
-int rollD2()
-{
-    return rand() % 2 + 1;
 }

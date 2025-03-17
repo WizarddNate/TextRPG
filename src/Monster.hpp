@@ -3,6 +3,7 @@
 #include "Entity.hpp"
 #include "Dice.hpp"
 #include "Player.hpp"
+#include "Room.hpp"
 
 class Monster : public Entity
 {
@@ -18,6 +19,6 @@ public:
 private:
     bool statsGenerated = false;
     void GenerateStats();
-    int rollD6();
-    int rollD2();
+    //int rollD6();
+    //int rollD2();
 };

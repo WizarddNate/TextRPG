@@ -119,7 +119,22 @@ void Player::Update()
         // Check for monsters
     if (room->GetLocation(tryPos) == 'M'){
         //room->ClearLocation(tryPos);
-        //monster->Fight();
+        std::vector<Entity*> monsters = room->GetMonsters();
+
+        for(Entity* e : monsters)
+        {
+            if (e->GetPosition() == tryPos)
+            {
+                ((Monster*)e)->Fight();
+                //((Player*)e)->StatsPick();
+
+
+
+
+                break;
+            }
+        }
+        
         printf("the monster is on break right now\n");
     }
 
@@ -139,7 +154,7 @@ void Player::Update()
         }
 
         if(room->monsterCount != 0){
-            printf("You cannot leave yet, there are monsters everywere!\n");
+            printf("You cannot leave yet, there are monsters nearby!\n");
             return;
 
         }

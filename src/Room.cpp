@@ -112,8 +112,9 @@ void Room::Load(std::string _path)
                 Entity* monster = (Entity*)new Monster();
                 m_monsters.push_back(monster);
 
+                monster->room = this;
+
                 monster->Init(Vector2D(x,y));
-                monster->Start();
 
                 //add to monster counter
                 monsterCount ++;
@@ -125,6 +126,9 @@ void Room::Load(std::string _path)
 
         }
     }
+
+    for (Entity* e : m_monsters)
+        e->Start();
 }
 
 void Room::Update()
