@@ -148,8 +148,9 @@ void Player::Update()
             return;
         }
 
-        if(room->monsterCount != 0){
-            printf("You cannot leave yet, there are monsters nearby!\n");
+        if(room->monsterCount >= 1){
+            printf("You cannot leave yet, there are monsters everywere!\n");
+                            //when it gets to that point, somewhere in the monster script we need a monsterCount --
             return;
 
         }

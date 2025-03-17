@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
 
     // Simulate a few level-ups and dice rolls
     for (int i = 0; i < 5; i++) {
-        //LevelUp(playerLevel, currentDiceSides);  // Level up the player
+        //levelUp(playerLevel, currentDiceSides);  // Level up the player
         //int rollDice = rollDice(currentDiceSides);  // Roll the dice
         //std::cout << "You rolled a " << rollDice << " on your " << currentDiceSides << "-sided dice.\n\n";
     }
