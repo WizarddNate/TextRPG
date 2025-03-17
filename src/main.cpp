@@ -16,7 +16,7 @@
 #include <cstdlib>
 #include <ctime>
 #include "Player.hpp"
-#include "Dice.hpp"
+#include "LevelUp.cpp"
 #include "Dice.cpp"
 
 
@@ -35,24 +35,20 @@ int main(int argc, char* argv[])
   
     return 0;
 
-    //Player Leveling system
+    //Player Level
 
-    srand(time(0));  // Initialize random number generator
+    srand(time(0));  // Seed for random number generation
 
-    int playerLevel = 1;  // Starting level
-    int currentDiceSides = 6;  // Starting dice is a 6-sided die
+    LevelingUp player(1);
 
-    // Simulate a few level-ups and dice rolls
-    for (int i = 0; i < 5; i++) {
-        //levelUp(playerLevel, currentDiceSides);  // Level up the player
-        //int rollDice = rollDice(currentDiceSides);  // Roll the dice
-        //std::cout << "You rolled a " << rollDice << " on your " << currentDiceSides << "-sided dice.\n\n";
+    cout << "Player is at level " << player.level << " with a " << player.dice_sides << "-sided dice." << endl;
+
+    // Simulate leveling up and rolling dice
+    for (int i = 0; i < 10; i++) {
+        player.levelUp();  // Player levels up
+        cout << "Rolling the dice... You rolled a " << player.rollDice() << "!" << endl;
+        cout << endl;
     }
 
     return 0;
 }
-
-//void LevelUp(playerLevel, currentDiceSides)
-//{
-//
-//}
