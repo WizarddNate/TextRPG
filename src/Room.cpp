@@ -120,6 +120,8 @@ void Room::Load(std::string _path)
                 monsterCount ++;
                 //when monster counter == 0, player can leave room
 
+                        //when it gets to that point, somewhere in the monster script we need a monsterCount --
+
                 // clear
                 //m_map[y][x] = ' ';
             }
