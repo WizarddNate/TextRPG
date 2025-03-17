@@ -1,16 +1,21 @@
 #pragma once
-#include "Stats.hpp"
-#include "Entity.hpp"
 
-class Boss : public Entity
+#include <iostream>
+#include "Entity.hpp"
+#include "Dice.hpp"
+#include "Player.hpp"
+#include "Room.hpp"
+
+class Boss: public Entity
 {
 public:
     void Start();
-    void Update();
+    //void Update(); 
     void Fight();
 
-    /// Monster Stats ///
-    MonsterStats bossStats;
+    BossStats bossStats;
+    Die die;
+    RollStats roll;
 
 private:
     bool statsGenerated = false;

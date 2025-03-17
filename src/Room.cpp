@@ -1,6 +1,7 @@
 #include "Room.hpp"
 #include "Player.hpp"
 #include "Monster.hpp"
+#include "Boss.hpp"
 #include "fogpi/fogpi.hpp"
 
 #include <fstream>
@@ -19,6 +20,15 @@ void Room::Load(std::string _path)
     m_monsters.clear();
     std::ifstream file;
     file.open(_path);
+
+    // for (Entity* Boss : m_boss)
+    // {
+    //     delete boss;
+    //     boss = nullptr;
+    // }
+    // m_boss.clear();
+    // std::ifstream file;
+    // file.open(_path);
 
     if (!file.is_open())
     {
@@ -126,10 +136,28 @@ void Room::Load(std::string _path)
                 //m_map[y][x] = ' ';
             }
 
+            if (m_map[y][x] == 'B')     //BOSS//
+            {
+                Entity* boss = (Entity*)new Boss();
+                m_boss.push_back(boss);
+
+                boss->room = this;
+
+                boss->Init(Vector2D(x,y));
+
+                //add to monster counter
+                monsterCount ++;
+                //when monster counter == 0, player can leave room
+
+            }
+
         }
     }
 
     for (Entity* e : m_monsters)
+        e->Start();
+
+    for (Entity* e : m_boss)     //BOSS//
         e->Start();
 }
 
@@ -153,6 +181,11 @@ void Room::Update()
     {
         monster->room = this;
         monster->Update();
+    }
+    for (Entity* boss : m_boss)     //BOSS//
+    {
+        boss->room = this;
+        boss->Update();
     }
 }
 

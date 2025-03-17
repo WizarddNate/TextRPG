@@ -116,4 +116,6 @@ void Monster::Fight()
         printf("You have died.\n Final Level: %i\n Gold Amount: %i\n", playerStats.level, playerStats.gold);
         exit(0);
     }
+
+    printf("You take a step back and heal\n");
 }

@@ -2,6 +2,7 @@
 #include "fogpi/fogpi.hpp"
 #include "Room.hpp"
 #include "Monster.hpp"
+#include "Boss.hpp"
 void Player::Start()
 {
     m_character = 'P';
@@ -133,6 +134,19 @@ void Player::Update()
         }
         
         //printf("the monster is on break right now\n");
+    }
+    if (room->GetLocation(tryPos) == 'B'){      //Boss fight
+        //room->ClearLocation(tryPos);
+        std::vector<Entity*> boss = room->GetBoss();
+
+        for(Entity* e : boss)
+        {
+            if (e->GetPosition() == tryPos)
+            {
+                ((Boss*)e)->Fight();
+                break;
+            }
+        }
     }
 
     // open door unlocked door

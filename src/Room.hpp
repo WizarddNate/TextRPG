@@ -18,6 +18,7 @@ public:
 
     Entity& GetPlayer() { return *m_player; }
     std::vector<Entity*>& GetMonsters() { return m_monsters; }
+    std::vector<Entity*>& GetBoss() { return m_boss; }
     const std::vector<std::vector<char>>& GetMap() { return m_map; }
     char GetLocation(Vector2D _pos);
     void SetLocation(Vector2D _pos, char _char);
@@ -30,6 +31,6 @@ public:
 private:
     Entity *m_player = nullptr;
     std::vector<Entity*> m_monsters;
-
+    std::vector<Entity*> m_boss;
     std::vector<Door> m_doors;
 };
