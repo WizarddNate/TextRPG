@@ -1,4 +1,5 @@
 #include "Monster.hpp"
+#include "fogpi/fogpi.hpp"
 #include "Room.hpp"
 #include "Player.hpp"
 
@@ -49,7 +50,7 @@ void Monster::GenerateStats()
 void Monster::Fight()
 {
     /// Player Stats ///
-    const CharStats& playerStats = ((Player&)(room->GetPlayer())).playerStats;
+    CharStats& playerStats = ((Player&)(room->GetPlayer())).playerStats;
 
     //printf(playerStats.level);
     //printf(monsterStats.health);
@@ -62,18 +63,25 @@ void Monster::Fight()
     {
         case 'A':
             monsterStats.health = monsterStats.health - ((monsterStats.dexterity + rollD6()) - (playerStats.strength + rollD6()));
-            printf("You do %i points in strength damage, the monster has %i hp remaining \n", monsterStats.exp, monsterStats.health);
+            printf("You do %i points in strength damage, the monster has %i hp remaining \n", playerStats.strength, monsterStats.health);
+            break;
         case 'S':
             //monsterStats.health = monsterStats.health - ((monsterStats.wisdom + rollD6()) - (playerStats.wit + rollD6()));
-            printf("You do %i points in magic damage with your wit, the monster has %i hp remaining \n", monsterStats.exp, monsterStats.health);
+            printf("You do %i points in magic damage with your wit, the monster has %i hp remaining \n", playerStats.wit, monsterStats.health);
+            break;
         default:
             printf("You choke from your nerves and do nothing \n");
+            break;
     }
 
     //check if monster died from that attack
     if (monsterStats.health <= 0)
     {
-        //call win function
+        room->monsterCount--;
+        //room->ClearLocation(tryPos);
+        // m_monsters.erace(m_monsters.begin() + i) <-
+        //remove monster from array: Monster.remove/erase(monster.beginning + index)
+        printf("the monster has been vanqiushed!\n");
     }
     else //monsters turn to attack
     {
@@ -81,20 +89,22 @@ void Monster::Fight()
         if (flipCoin = 1)
         {
             //monster makes a normal attack
-            //playerStats.health = playerStats.health - ((playerStats.dexterity + rollD6()) - (monsterStats.strength + rollD6()));
-            printf("The monster hits you for %i points in strength damage, you have %i hp remaining \n", monsterStats.strength, monsterStats.health);
+            playerStats.health = playerStats.health - ((playerStats.dexterity + rollD6()) - (monsterStats.strength + rollD6()));
+            printf("The monster hits you for %i points in strength damage, you have %i hp remaining \n", monsterStats.strength, playerStats.health);
         }
         else
         {
             //monster makes a special attack
-            //playerStats.health = playerStats.health - ((playerStats.wisdom + rollD6()) - (monsterStats.wit + rollD6()));
-            printf("The monster hits you for  %i points in magic damage with its wit, you have %i hp remaining \n", monsterStats.wit, monsterStats.health);
+            playerStats.health = playerStats.health - ((playerStats.wisdom + rollD6()) - (monsterStats.wit + rollD6()));
+            printf("The monster hits you for  %i points in magic damage with its wit, you have %i hp remaining \n", monsterStats.wit, playerStats.health);
         }
     }
 
     //check if player is dead
-    //if (playerStats.health <= 0)
+        if (playerStats.health <= 0)
     {
-        //call death function
+        //handle death
+        printf("You have died.\n Final Level: %i\n Gold Amount: %i\n", playerStats.level, playerStats.exp);
+        exit(0);
     }
 }

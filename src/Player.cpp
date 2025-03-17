@@ -128,14 +128,9 @@ void Player::Update()
                 ((Monster*)e)->Fight();
                 //((Player*)e)->StatsPick();
 
-
-
-
                 break;
             }
         }
-        
-        printf("the monster is on break right now\n");
     }
 
     // open door unlocked door
@@ -246,13 +241,13 @@ void Player::StatsPick()
         break;
 
     default:
-        playerStats.strength = 3;
-        playerStats.dexterity = 4;
-        playerStats.wit = 2;
+        playerStats.strength = 1;
+        playerStats.dexterity = 2;
+        playerStats.wit = 1;
         playerStats.wisdom = 0;
-        playerStats.health = 12;
+        playerStats.health = 8;
 
-        printf("you are secret class X! It SUCKS. Stats:%i\n Strength: %i\n Dexterity: %i\n Wit: %i\n Wisdom: %i\n Health: %i\n You're not good at much of anything. Good luck bozo!\n", playerStats.strength, playerStats.dexterity, playerStats.wit, playerStats.wisdom, playerStats.health);
+        printf("you are secret class X! It SUCKS. Stats:\n Strength: %i\n Dexterity: %i\n Wit: %i\n Wisdom: %i\n Health: %i\n You're not good at much of anything. Good luck bozo!\n", playerStats.strength, playerStats.dexterity, playerStats.wit, playerStats.wisdom, playerStats.health);
         break;
     }
 }
