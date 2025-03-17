@@ -131,6 +131,8 @@ void Player::Update()
                 break;
             }
         }
+        
+        //printf("the monster is on break right now\n");
     }
 
     // open door unlocked door
