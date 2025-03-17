@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include "Entity.hpp"
 #include "Dice.hpp"
 #include "Player.hpp"

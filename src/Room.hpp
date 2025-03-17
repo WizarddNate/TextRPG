@@ -23,11 +23,13 @@ public:
     void SetLocation(Vector2D _pos, char _char);
     void ClearLocation(Vector2D _pos);
     void OpenDoor(Vector2D _pos);
+    
+    std::vector<std::vector<char>> m_map;
 
     int monsterCount = 0;
 private:
     Entity *m_player = nullptr;
     std::vector<Entity*> m_monsters;
-    std::vector<std::vector<char>> m_map;
+
     std::vector<Door> m_doors;
 };
