@@ -85,12 +85,12 @@ void Monster::Fight()
         playerStats.exp = playerStats.exp + monsterStats.exp;
         playerStats.gold = playerStats.gold + monsterStats.gold;
         playerStats.health = playerStats.health + ( 2 + rollD6());
-        
+
         room->monsterCount--;
         //room->ClearLocation(tryPos);
         // m_monsters.erace(m_monsters.begin() + i) <-
         //remove monster from array: Monster.remove/erase(monster.beginning + index)
-        printf("the monster has been vanqiushed!\n you got %i gold pieces, %i exp, and your health has been restored to %i points.\n", monsterStats.gold, monsterStats.exp, playerStats.health);
+        printf("*** the monster has been vanqiushed! ***\n you got %i gold pieces, %i exp, and your health has been restored to %i points.\n", monsterStats.gold, monsterStats.exp, playerStats.health);
         return;
     }
     else //monsters turn to attack
@@ -114,7 +114,7 @@ void Monster::Fight()
         if (playerStats.health <= 0)
     {
         //handle death
-        printf("You have died.\n Final Level: %i\n Gold Amount: %i\n", playerStats.level, playerStats.gold);
+        printf("*** You have died! ***\n Final Level: %i\n Gold Amount: %i\n", playerStats.level, playerStats.gold);
         exit(0);
     }
 

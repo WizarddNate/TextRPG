@@ -2,7 +2,6 @@
 #include <cstdlib>
 #include <ctime>
 #include "Player.hpp"
-#include "LevelUp.cpp"
 #include "Stats.hpp"
 
 using namespace std;

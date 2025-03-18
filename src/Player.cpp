@@ -34,9 +34,12 @@ void Player::Update()
         exit(0);
     }
 
-    if(playerStats.exp >= 8){
+        //Level up
+    int ExpRequire = 4 + (playerStats.level *2);
+
+    if(playerStats.exp >= ExpRequire){
         playerStats.level ++;
-        printf("*** You Leveled Up!! ***");
+        printf("*** You Leveled Up!! ***\n");
         playerStats.exp = 0;
     }
 
@@ -274,16 +277,4 @@ void Player::StatsPick()
         printf("you are secret class X! It SUCKS. Stats:\n Strength: %i\n Dexterity: %i\n Wit: %i\n Wisdom: %i\n Health: %i\n You're not good at much of anything. Good luck bozo!\n", playerStats.strength, playerStats.dexterity, playerStats.wit, playerStats.wisdom, playerStats.health);
         break;
     }
-}
-
-int Player :: LevelUp(){
-    //playerStats.level = 1;
-    //playerStats.exp = 0;
-
-    if(playerStats.exp == 8){
-        playerStats.level ++;
-        printf("You Leveled Up!!");
-        playerStats.exp = 0;
-    }
-
 }

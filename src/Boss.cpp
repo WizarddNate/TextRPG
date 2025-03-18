@@ -80,7 +80,7 @@ void Boss::Fight()
         //room->ClearLocation(tryPos);
         // m_monsters.erace(m_monsters.begin() + i) <-
         //remove monster from array: Monster.remove/erase(monster.beginning + index)
-        printf("You have defeted the Boss monster!\n you got %i gold pieces, %i exp, and your health has been restored to %i points.\n", bossStats.gold, bossStats.exp, playerStats.health);
+        printf("*** You have defeted the Boss monster!*** \n you got %i gold pieces, %i exp, and your health has been restored to %i points.\n", bossStats.gold, bossStats.exp, playerStats.health);
     }
     else //monsters turn to attack
     {
@@ -95,7 +95,7 @@ void Boss::Fight()
         {
             //monster makes a special attack
             playerStats.health = playerStats.health - abs((playerStats.wisdom + rollDD6()) - (bossStats.wit + rollDD6()));
-            printf("The bossmonster hits you for  %i points in magic damage with its wit, you have %i hp remaining \n", bossStats.wit, playerStats.health);
+            printf("The Boss hits you for %i points in magic damage with its wit, you have %i hp remaining \n", bossStats.wit, playerStats.health);
         }
     }
 
@@ -103,7 +103,7 @@ void Boss::Fight()
     if (playerStats.health <= 0)
     {
         //handle death
-        printf("You have died.\n Final Level: %i\n Gold Amount: %i\n", playerStats.level, playerStats.gold);
+        printf("*** You have died. ***\n Final Level: %i\n Gold Amount: %i\n", playerStats.level, playerStats.gold);
         exit(0);
     }
 

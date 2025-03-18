@@ -10,7 +10,6 @@ public:
     void Start();
     void Update();
     void StatsPick();
-    int LevelUp();
 
     /// Player Stats ///
     CharStats playerStats;
