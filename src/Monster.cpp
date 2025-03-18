@@ -67,11 +67,11 @@ void Monster::Fight()
     switch(AttackInput)
     {
         case 'A':
-            monsterStats.health = monsterStats.health - abs((monsterStats.dexterity + rollD6()) - (playerStats.strength + rollD6()));
+            monsterStats.health = monsterStats.health - abs((playerStats.strength + rollD6()) -(monsterStats.dexterity + rollD6()));
             printf("You do %i points in strength damage, the monster has %i hp remaining \n", playerStats.strength, monsterStats.health);
             break;
         case 'S':
-            monsterStats.health = monsterStats.health - abs((monsterStats.wisdom + rollD6()) - (playerStats.wit + rollD6()));
+            monsterStats.health = monsterStats.health - abs((playerStats.wit + rollD6()) - (monsterStats.wisdom + rollD6()));
             printf("You do %i points in magic damage with your wit, the monster has %i hp remaining \n", playerStats.wit, monsterStats.health);
             break;
         default:
@@ -85,12 +85,13 @@ void Monster::Fight()
         playerStats.exp = playerStats.exp + monsterStats.exp;
         playerStats.gold = playerStats.gold + monsterStats.gold;
         playerStats.health = playerStats.health + ( 2 + rollD6());
-
+        
         room->monsterCount--;
         //room->ClearLocation(tryPos);
         // m_monsters.erace(m_monsters.begin() + i) <-
         //remove monster from array: Monster.remove/erase(monster.beginning + index)
         printf("the monster has been vanqiushed!\n you got %i gold pieces, %i exp, and your health has been restored to %i points.\n", monsterStats.gold, monsterStats.exp, playerStats.health);
+        return;
     }
     else //monsters turn to attack
     {

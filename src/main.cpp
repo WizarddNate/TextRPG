@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
     srand(time(NULL));
 
     Room room;
-    room.Load("assets/level_boss.map");
+    room.Load("assets/level_1.map");
 
 
     while(true)

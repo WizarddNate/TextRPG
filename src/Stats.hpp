@@ -8,7 +8,7 @@ struct CharStats
 
     int health = 10;
     int level = 0;
-    float exp = 0;
+    int exp = 0;
     int gold = 0;
 
 };
@@ -20,7 +20,7 @@ struct MonsterStats{
     int wisdom = 0; //determines special defense
 
     int health = 0;
-    float exp = 0;
+    int exp = 0;
     int gold = 0; //add gold to player gold stat/count
 };
 
@@ -31,7 +31,7 @@ struct BossStats{
     int wisdom = 0; //determines special defense
 
     int health = 0;
-    float exp = 0;
+    int exp = 0;
     int gold = 0; //add gold to player gold stat/count
 
 };

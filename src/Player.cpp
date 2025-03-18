@@ -3,6 +3,7 @@
 #include "Room.hpp"
 #include "Monster.hpp"
 #include "Boss.hpp"
+
 void Player::Start()
 {
     m_character = 'P';
@@ -31,6 +32,12 @@ void Player::Update()
         //handle death
         printf("You have died.\n Final Level: %i\n Gold Amount: %i\n", playerStats.level, playerStats.exp);
         exit(0);
+    }
+
+    if(playerStats.exp >= 8){
+        playerStats.level ++;
+        printf("*** You Leveled Up!! ***");
+        playerStats.exp = 0;
     }
 
     do
@@ -269,3 +276,14 @@ void Player::StatsPick()
     }
 }
 
+int Player :: LevelUp(){
+    //playerStats.level = 1;
+    //playerStats.exp = 0;
+
+    if(playerStats.exp == 8){
+        playerStats.level ++;
+        printf("You Leveled Up!!");
+        playerStats.exp = 0;
+    }
+
+}
