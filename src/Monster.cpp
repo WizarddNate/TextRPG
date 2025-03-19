@@ -82,8 +82,8 @@ void Monster::Fight()
     //check if monster died from that attack
     if (monsterStats.health <= 0)
     {
-        playerStats.exp = playerStats.exp + monsterStats.exp;
         playerStats.gold = playerStats.gold + monsterStats.gold;
+        playerStats.exp = playerStats.exp + monsterStats.exp;
         playerStats.health = playerStats.health + ( 2 + rollD6());
 
         room->monsterCount--;
